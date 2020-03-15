@@ -34,17 +34,7 @@
   font-family: Clarendon, Theinhardt, serif;
   font-size: 2.5vh; 
   font-weight: bolder;
-  /*
-  -webkit-mask-image: url(./img/rough-texture.jpg);
-  -moz-mask-image: url(./img/rough-texture.jpg);
-  -o-mask-image: url(./img/rough-texture.jpg);
-  mask-image: url(./img/rough-texture.jpg);
-  */
-  /* if we can clip, do it */
 
-  /* what will show through the text
-      ~ or ~
-     what will be the background of that element */
   background: url(./img/rough-texture.jpg);
   -webkit-transform: rotate(-30deg);
   -moz-transform: rotate(-30deg);
@@ -53,9 +43,41 @@
   -webkit-background-clip: text;
 }
 
-
 .App-link {
   color: #61dafb;
+}
+
+.App-checkout {
+  display: inline-block;
+  font-weight: lighter;
+  padding: 0vh 6vw 0vh;
+  text-align: right;
+}
+
+.App-checkout-placeholder {
+  display: inline-block;
+  padding: 0vh 0vw 0vh 67vw;
+}
+
+.App-login {
+  display: inline-block;
+  padding: 0vh 1vw;
+}
+
+.App-cart {
+  display: inline-block;
+  padding: 0vh 1vw;
+}
+
+.Tab-list {
+  display: block;
+  font-weight: bolder;
+  padding: 0vh 4vw 0vh 22vw;
+}
+
+div[class*="Tab-item-"] {
+  display: inline-block;
+  padding: 0vh 5vh;
 }
 
 .Menu {
@@ -66,7 +88,7 @@
 
 .Store {
   display: inline-block;
-  margin: 7vh;
+  padding: 6vh 0vh 0vh 10vh;
   background-color: #000000;
 }
 

@@ -8,6 +8,9 @@ function App() {
   var storeItem2 = { key: Math.floor(Math.random() * 1000), name: "Zignature Brand Dog Food", image: item_example, alt: "Zignature" };
   var storeItem3 = { key: Math.floor(Math.random() * 1000), name: "Zignature Brand Dog Food", image: item_example, alt: "Zignature" };
   var storeItemArray = [ storeItem1, storeItem2, storeItem3 ]
+  var tab1 = { key: "Deals" }
+  var tab2 = { key: "Clearance" }
+  var tabItemArray = [ tab1, tab2 ]
   return (
     <div className="App">
       <header className="App-header">
@@ -17,7 +20,25 @@ function App() {
           <div className="App-name">
             STORE
           </div>
-          {/* Login stuff here */}
+          <div className="App-checkout">
+            <div className="App-checkout-placeholder">
+            </div>
+            <div className="App-login">
+              {/* Login stuff here */}
+              Login
+            </div>
+            <div className="App-cart">
+              {/* Cart stuff here */}
+              Cart
+            </div>
+          </div>
+          <div className="Tab-list">
+            {tabItemArray.map(tab =>
+              <div className={"Tab-item-" + tab.key}>
+                {tab.key}
+              </div>
+            )}
+          </div>
       </header>
       <div className="Menu">
         SHOP BY CATEGORY
