@@ -1,23 +1,45 @@
 import React from 'react';
-import logo from './logo.png';
-import item_example from './example-product.jpg';
+import logo from './img/logo.png';
+import item_example from './img/example-product.jpg';
 import './App.css';
 
 function App() {
+  var storeItem1 = { key: Math.floor(Math.random() * 1000), name: "Zignature Brand Dog Food", image: item_example, alt: "Zignature" };
+  var storeItem2 = { key: Math.floor(Math.random() * 1000), name: "Zignature Brand Dog Food", image: item_example, alt: "Zignature" };
+  var storeItem3 = { key: Math.floor(Math.random() * 1000), name: "Zignature Brand Dog Food", image: item_example, alt: "Zignature" };
+  var storeItemArray = [ storeItem1, storeItem2, storeItem3 ]
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        {/* Login stuff here */}
+          <div className="App-logo-container">
+            <img className="App-logo-image" src={logo} alt="logo" />
+          </div>
+          <div className="App-name">
+            STORE
+          </div>
+          {/* Login stuff here */}
       </header>
+      <div className="Menu">
+        SHOP BY CATEGORY
+        <ul>
+          <li>Dog Food</li>
+          <li>Dog Toys</li>
+          <li>Crates</li>
+        </ul>
+      </div>
       <div className="Store">
         {/* We might have a store header here; CSS name Store-header */}
-        <div className="Item">
-          <img src={item_example} className="Item-image" />
-          <p>
-            Zignature brand dog food
-          </p>
-        </div>
+        {/* Do this: https://medium.com/@ayabellazreg/make-a-simple-shopping-cart-app-using-react-redux-1-3-fefde93e80c7 */}
+
+        {storeItemArray.map(item => 
+          <div className={"Store-item-" + item.key} key={item.key}>
+            <div className={"Item-container" + item.key}>
+              <img src={item.image} className={"Item-image-" + item.key} alt={item.alt} />
+              <p className={"Item-description-" + item.key}>{item.name}</p>
+            </div>
+          </div>      
+        )}
+
       </div>
     </div>
   );

@@ -1,44 +1,107 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 50vmin;
-  pointer-events: none;
+  background: #000000;
+  color: white;
+  font-weight: bold;
+  height: 100vh;
 }
 
 .App-header {
   background-color: #000000;
   min-height: 10vh;
-  display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 2vh 3vh 0vh;
 }
+
+.App-logo-container {
+  display: inline-block;
+  pointer-events: none;
+  justify-content: center;
+}
+
+.App-logo-image {
+  height: 12vmin;
+}
+
+.App-name {
+  display: inline-block;
+  position: relative;
+  align-items: center;
+  padding: 1vh;
+  bottom: 3vh;
+  justify-content: center;
+  /* fallback color */
+  color: #ff0000;
+  font-family: Clarendon, Theinhardt, serif;
+  font-size: 2.5vh; 
+  font-weight: bolder;
+  /*
+  -webkit-mask-image: url(./img/rough-texture.jpg);
+  -moz-mask-image: url(./img/rough-texture.jpg);
+  -o-mask-image: url(./img/rough-texture.jpg);
+  mask-image: url(./img/rough-texture.jpg);
+  */
+  /* if we can clip, do it */
+
+  /* what will show through the text
+      ~ or ~
+     what will be the background of that element */
+  background: url(./img/rough-texture.jpg);
+  -webkit-transform: rotate(-30deg);
+  -moz-transform: rotate(-30deg);
+  -o-transform: rotate(-30deg);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Menu {
+  display: inline-block;
+  margin: 3vh;
+  vertical-align: top;
 }
 
 .Store {
+  display: inline-block;
+  margin: 7vh;
+  background-color: #000000;
+}
+
+div[class*="Store-item-"] {
+  display: inline-block;
+  flex-direction: row;
+  margin: 0vh 5vh 0vh 5vh;
+  text-align: center;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 1vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+li {
+  padding-bottom: 1vh;
+}
+
+div[class*="Item-container-"] {
 
 }
 
-.Item {
-
+img[class*="Item-image-"] {
+  height: 14vh;
+  margin-bottom: 1vh;
 }
 
-.Item-image {
-  
+p[class*="Item-description-"] {
+  font-size: .9em;
 }
