@@ -8,9 +8,13 @@ function App() {
   var storeItem2 = { key: Math.floor(Math.random() * 1000), name: "Zignature Brand Dog Food", image: item_example, alt: "Zignature" };
   var storeItem3 = { key: Math.floor(Math.random() * 1000), name: "Zignature Brand Dog Food", image: item_example, alt: "Zignature" };
   var storeItemArray = [ storeItem1, storeItem2, storeItem3 ]
+  var tab0 = { key: "Shop" }
   var tab1 = { key: "Deals" }
   var tab2 = { key: "Clearance" }
-  var tabItemArray = [ tab1, tab2 ]
+  var tabItemArray = [ tab0, tab1, tab2 ]
+  var link1 = { key: Math.floor(Math.random() * 100), description: "Google Homepage", uri: "https://google.com/" }
+  var link2 = { key: Math.floor(Math.random() * 100), description: "Google Homepage", uri: "https://google.com/" }
+  var footerLinkArray = [ link1, link2 ]
   return (
     <div className="App">
       <header className="App-header">
@@ -24,11 +28,11 @@ function App() {
             <div className="App-checkout-placeholder">
             </div>
             <div className="App-login">
-              {/* Login stuff here */}
+              {/* Login stuff here; Facebook, Google, Twitter icons, etc. */}
               Login
             </div>
             <div className="App-cart">
-              {/* Cart stuff here */}
+              {/* Cart stuff here; cart icon, etc. */}
               Cart
             </div>
           </div>
@@ -61,6 +65,14 @@ function App() {
           </div>      
         )}
 
+      </div>
+      <div className="Footer">
+        {footerLinkArray.map(link => 
+          <div className={"Link-item-" + link.key}>
+            <a href={link.uri}>{link.description}</a>
+          </div>
+        )}
+        <p className="copyright">© 2020 Chaim Eliyah</p>
       </div>
     </div>
   );
