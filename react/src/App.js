@@ -12,6 +12,12 @@ function App() {
   var tab1 = { key: "Deals" }
   var tab2 = { key: "Clearance" }
   var tabItemArray = [ tab0, tab1, tab2 ]
+
+  var list0 = { key: "Dog Food" }
+  var list1 = { key: "Dog Toys" }
+  var list2 = { key: "Crates" }
+  var menuListArray = [ list0, list1, list2 ]
+
   var link1 = { key: Math.floor(Math.random() * 100), description: "Google Homepage", uri: "https://google.com/" }
   var link2 = { key: Math.floor(Math.random() * 100), description: "Google Homepage", uri: "https://google.com/" }
   var footerLinkArray = [ link1, link2 ]
@@ -47,9 +53,9 @@ function App() {
       <div className="Menu">
         SHOP BY CATEGORY
         <ul>
-          <li>Dog Food</li>
-          <li>Dog Toys</li>
-          <li>Crates</li>
+          {menuListArray.map(menuItem =>
+            <li>{menuItem.key}</li>  
+          )}
         </ul>
       </div>
       <div className="Store">
