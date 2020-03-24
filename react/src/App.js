@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './img/logo.png';
-import item_example from './img/example-product.jpg';
+import item_example from './img/example-product2.png';
 import './App.css';
 
 function App() {
