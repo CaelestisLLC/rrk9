@@ -24,12 +24,14 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <a href={window.location.protocol + "//" + window.location.host + "/"}>
           <div className="App-logo-container">
             <img className="App-logo-image" src={logo} alt="logo" />
           </div>
           <div className="App-name">
-            STORE
+              STORE
           </div>
+        </a>
           <div className="App-checkout">
             <div className="App-checkout-placeholder">
             </div>
