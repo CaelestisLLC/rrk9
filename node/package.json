@@ -4,6 +4,7 @@
   "description": "an api to permit crud operations against a database",
   "main": "server.js",
   "scripts": {
+    "start": "nodemon server.js",
     "test": "mocha"
   },
   "repository": {
