@@ -1,6 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var AuthController = require('./api/auth.js');
+var AuthController = require('./api/auth/controller.js');
 var LoginController = require('./api/logins.js');
 var ReceiptController = require('./api/receipts.js');
 
@@ -19,6 +19,10 @@ router.get('/system/ping', function(request, response) {
   response.json({ message: '200 OK' });
 });
 
+var authController = new AuthController();
+authController.defineRoutes(router);
+// var loginController = new LoginController();
+// loginController.defineRoutes(router);
 // var loginController = new LoginController();
 // loginController.defineRoutes(router);
 
