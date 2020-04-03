@@ -1,15 +1,15 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var AuthController = require('./api/auth/controller.js');
-var LoginController = require('./api/logins.js');
-var ReceiptController = require('./api/receipts.js');
+const express = require('express');
+const bodyParser = require('body-parser');
+const AuthController = require('./api/auth/controller.js');
+const LoginController = require('./api/logins.js');
+const ReceiptController = require('./api/receipts.js');
 
 var port = process.env.PORT || 8080;
 
 var app = express();
 var router = express.Router();
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(bodyParser.json());
 
 router.use(function(request, response, next) {

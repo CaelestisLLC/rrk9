@@ -1,1 +1,3 @@
-// not implemented
+module.exports = {
+  authTimeoutInSeconds: 60
+}
