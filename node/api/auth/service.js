@@ -25,15 +25,21 @@ function AuthService () { }
 AuthService.prototype = {
   isAuthenticated: function (token) {
 
-    // verify jwt https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-7.2
-    if ( token.includes('.')
-      && true
-    ) return true;
-    // else
-    return false;
+    let plainText = jwt.decode(token);
+    return jwt.verify(token, privateKey, function(error) {
+      if (error) {
+        console.log(error.name + ":", error.message, plainText);
+        return false;
+      }
+
+      console.log("Validated", plainText);
+      return true;
+    });
   },
 
   grantToken: function (userEmail) {
+    console.log("Token issued for", userEmail, "at", Date.now());
+
     return jwt.sign({ id: userEmail }, privateKey, { expiresIn: config.authTimeoutInSeconds });
   }
 }
