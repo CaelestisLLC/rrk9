@@ -1,8 +1,15 @@
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-var Receipt = function Receipt(data) {
-  this.loginId = data.loginId;
-  this.email = data.email;
-  this.datetime = data.datetime;
-}
+let ReceiptSchema = new Schema({
+  loginId: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Login'
+  }],
+  email: String,
+  datetime: Date
+});
+
+var Receipt = mongoose.model('Receipt', ReceiptSchema);
 
 module.exports = Receipt;

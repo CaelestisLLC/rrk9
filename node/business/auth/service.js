@@ -18,31 +18,14 @@ const jwt = require('jsonwebtoken');
 const fs = require('fs');
 const privateKey = fs.readFileSync('verbal_rsa');
 // const publicKey = fs.readFileSync("verbal_rsa.pub");
-const config = require('../../config.js');
 
-// TODO: move to data
-// https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose
-const mongoose = require('mongoose');
-mongoose.connect(config.connectionString, {
-  serverSelectionTimeoutMS: 2000,
-  connectTimeoutMS: 5000,
-  socketTimeoutMS: 20000,
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  auth: { 
-    authSource: 'admin',
-    user: 'mongoadmin',
-    password: 'p@ssw0rdToYourMom'
-  },
-}).then(() => { 
-  console.log('Connected to database.'); 
-}).catch((error) => {
-  console.log(error);
-});
+const config = require('../../config.js');
+const Context = require('../../data/context.js');
+Context.get(config);
+
 const Login = require('../../domain/logins/logins.js');
 
 function AuthService () { }
-
 AuthService.prototype = {
   isAuthenticated: function (token) {
 
@@ -61,10 +44,11 @@ AuthService.prototype = {
   grantToken: function (userEmail) {
 
     let token = jwt.sign({ id: userEmail }, privateKey, { expiresIn: config.jwtAuthTimeoutInSeconds });
-    let timestamp = jwt.decode(token).iat;
+    let milliseconds = new Date().getMilliseconds();
+    let timestamp = jwt.decode(token).iat * 1000 + milliseconds;
 
     let login = new Login({ email: userEmail, datetime: timestamp });
-
+    
     login.save(function (error) {
       if (error)
         console.log(error);

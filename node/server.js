@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const AuthController = require('./api/auth/controller.js');
-const ReceiptController = require('./api/receipts.js');
+const ReceiptController = require('./api/receipts/controller.js');
 
 const port = process.env.PORT || 8080;
 
@@ -20,6 +20,8 @@ router.get('/system/ping', function(request, response) {
 
 const authController = new AuthController();
 authController.defineRoutes(router);
+const receiptController = new ReceiptController();
+receiptController.defineRoutes(router);
 
 app.use('/api', router);
 app.listen(port);

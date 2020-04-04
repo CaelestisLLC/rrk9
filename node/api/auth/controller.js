@@ -1,5 +1,5 @@
 // require
-const AuthService = require('./service.js');
+const AuthService = require('../../business/auth/service.js');
 const url = require('url');
 
 function AuthController() { }
