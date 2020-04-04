@@ -1,3 +1,4 @@
 module.exports = {
-  authTimeoutInSeconds: 60
+  jwtAuthTimeoutInSeconds: 60,
+  connectionString: 'mongodb://mongodb:27017/rrk9_store'
 }

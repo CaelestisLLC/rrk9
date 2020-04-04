@@ -1,13 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const AuthController = require('./api/auth/controller.js');
-const LoginController = require('./api/logins.js');
 const ReceiptController = require('./api/receipts.js');
 
-var port = process.env.PORT || 8080;
+const port = process.env.PORT || 8080;
 
-var app = express();
-var router = express.Router();
+const app = express();
+const router = express.Router();
 
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(bodyParser.json());
@@ -19,12 +18,8 @@ router.get('/system/ping', function(request, response) {
   response.json({ message: '200 OK' });
 });
 
-var authController = new AuthController();
+const authController = new AuthController();
 authController.defineRoutes(router);
-// var loginController = new LoginController();
-// loginController.defineRoutes(router);
-// var loginController = new LoginController();
-// loginController.defineRoutes(router);
 
 app.use('/api', router);
 app.listen(port);

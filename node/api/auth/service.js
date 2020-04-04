@@ -3,7 +3,6 @@
 // OAuth: https://tools.ietf.org/html/rfc6749
 // JWT:   https://tools.ietf.org/html/rfc7519
 // JWS:   https://tools.ietf.org/html/draft-ietf-jose-json-web-signature-41
-// https://www.sohamkamani.com/blog/javascript/2019-03-29-node-jwt-authentication/
 // https://www.freecodecamp.org/news/securing-node-js-restful-apis-with-json-web-tokens-9f811a92bb52/
 //
 // There was no real reason to pick JWS over JWE, except that there were more examples available.
@@ -14,11 +13,33 @@
 // https://github.com/auth0/node-jsonwebtoken
 //
 const jwt = require('jsonwebtoken');
-const fs = require('fs');
+
 // https://nodejs.org/api/fs.html#fs_fs_readfilesync_path_options
-const privateKey = fs.readFileSync("verbal_rsa");
-const publicKey = fs.readFileSync("verbal_rsa.pub");
+const fs = require('fs');
+const privateKey = fs.readFileSync('verbal_rsa');
+// const publicKey = fs.readFileSync("verbal_rsa.pub");
 const config = require('../../config.js');
+
+// TODO: move to data
+// https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose
+const mongoose = require('mongoose');
+mongoose.connect(config.connectionString, {
+  serverSelectionTimeoutMS: 2000,
+  connectTimeoutMS: 5000,
+  socketTimeoutMS: 20000,
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  auth: { 
+    authSource: 'admin',
+    user: 'mongoadmin',
+    password: 'p@ssw0rdToYourMom'
+  },
+}).then(() => { 
+  console.log('Connected to database.'); 
+}).catch((error) => {
+  console.log(error);
+});
+const Login = require('../../domain/logins/logins.js');
 
 function AuthService () { }
 
@@ -38,9 +59,20 @@ AuthService.prototype = {
   },
 
   grantToken: function (userEmail) {
-    console.log("Token issued for", userEmail, "at", Date.now());
 
-    return jwt.sign({ id: userEmail }, privateKey, { expiresIn: config.authTimeoutInSeconds });
+    let token = jwt.sign({ id: userEmail }, privateKey, { expiresIn: config.jwtAuthTimeoutInSeconds });
+    let timestamp = jwt.decode(token).iat;
+
+    let login = new Login({ email: userEmail, datetime: timestamp });
+
+    login.save(function (error) {
+      if (error)
+        console.log(error);
+    });
+
+    console.log("Token issued for", userEmail, "at", timestamp);
+
+    return token;
   }
 }
 

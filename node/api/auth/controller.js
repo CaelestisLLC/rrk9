@@ -8,7 +8,10 @@ AuthController.prototype.defineRoutes = function(router) {
   //
   let authService = new AuthService();
   
-  // GET /api/signin?email=user@domain.net HTTP/1.1
+  // Authorization scope
+  //
+  // GET /api/authorize HTTP/1.1
+  // with Bearer token equal to JWT
   router.route('/authorize')
     .get(function (request, response) {
 
@@ -31,6 +34,9 @@ AuthController.prototype.defineRoutes = function(router) {
       }
     });
   
+  // User signin. This should be reliant on OAuth2, but this is a quick-and-dirty give-me-a-JWT so that we can develop.
+  //
+  // GET /api/signin?email=user@domain.net HTTP/1.1
   router.route('/signin')
     .get(function (request, response) {
       let host = request.url;
@@ -40,6 +46,12 @@ AuthController.prototype.defineRoutes = function(router) {
       let token = authService.grantToken(userEmail);
       response.status(200).send({ auth: true, token: token });
     });
+
+  //
+  // GET /api/refresh HTTP/1.1
+  // Not implemented. Try: https://www.sohamkamani.com/blog/javascript/2019-03-29-node-jwt-authentication/
+  //
+
 }
 
 module.exports = AuthController;
