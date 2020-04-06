@@ -1,18 +1,11 @@
 import React from 'react';
 import logo from './img/logo.png';
-import item_example from './img/example-product2.png';
 import './App.css';
 
-function App() {
-  var storeItem1 = { key: Math.floor(Math.random() * 1000), name: "Zignature Brand Dog Food", image: item_example, alt: "Zignature" };
-  var storeItem2 = { key: Math.floor(Math.random() * 1000), name: "Zignature Brand Dog Food", image: item_example, alt: "Zignature" };
-  var storeItem3 = { key: Math.floor(Math.random() * 1000), name: "Zignature Brand Dog Food", image: item_example, alt: "Zignature" };
-  var storeItemArray = [ storeItem1, storeItem2, storeItem3 ]
-  var tab0 = { key: "Shop" }
-  var tab1 = { key: "Deals" }
-  var tab2 = { key: "Clearance" }
-  var tabItemArray = [ tab0, tab1, tab2 ]
+import ShoppingCart from './components/ShoppingCart/ShoppingCart.jsx';
+import Store from './components/Store/Store.jsx';
 
+function App() {
   var list0 = { key: "Dog Food" }
   var list1 = { key: "Dog Toys" }
   var list2 = { key: "Crates" }
@@ -44,13 +37,6 @@ function App() {
               Cart
             </div>
           </div>
-          <div className="Tab-list">
-            {tabItemArray.map(tab =>
-              <div className={"Tab-item-" + tab.key}>
-                {tab.key}
-              </div>
-            )}
-          </div>
       </header>
       <div className="Menu">
         SHOP BY CATEGORY
@@ -60,20 +46,12 @@ function App() {
           )}
         </ul>
       </div>
-      <div className="Store">
-        {/* We might have a store header here; CSS name Store-header */}
-        {/* Do this: https://medium.com/@ayabellazreg/make-a-simple-shopping-cart-app-using-react-redux-1-3-fefde93e80c7 */}
 
-        {storeItemArray.map(item => 
-          <div className={"Store-item-" + item.key} key={item.key}>
-            <div className={"Item-container" + item.key}>
-              <img src={item.image} className={"Item-image-" + item.key} alt={item.alt} />
-              <p className={"Item-description-" + item.key}>{item.name}</p>
-            </div>
-          </div>      
-        )}
+      {/* We might have a store header here; CSS name Store-header */}
+      {/* Do this: https://medium.com/@ayabellazreg/make-a-simple-shopping-cart-app-using-react-redux-1-3-fefde93e80c7 */}
+      {/*<Store />*/}
+      <ShoppingCart />
 
-      </div>
       <div className="Footer">
         {footerLinkArray.map(link => 
           <div className={"Link-item-" + link.key}>

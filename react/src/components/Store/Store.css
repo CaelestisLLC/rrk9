@@ -1,0 +1,41 @@
+
+div[class*="Item-container-"] {
+
+}
+
+img[class*="Item-image-"] {
+  height: 14vh;
+  margin-bottom: 1vh;
+}
+
+p[class*="Item-description-"] {
+  font-size: .9em;
+}
+
+.Store {
+  display: inline-block;
+  padding: 6vh 0vh 0vh 10vh;
+  background-color: #000000;
+  min-height: 54vh;
+}
+
+div[class*="Store-item-"] {
+  display: inline-block;
+  flex-direction: row;
+  margin: 0vh 5vh 0vh 5vh;
+  text-align: center;
+}
+
+
+.Tab-list {
+  display: block;
+  font-weight: bolder;
+  padding: 0vh 4vw 0vh 22vw;
+}
+
+div[class*="Tab-item-"] {
+  display: inline-block;
+  padding: 0vh 2.5vw;
+}
+
+
