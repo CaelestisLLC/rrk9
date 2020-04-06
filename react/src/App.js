@@ -2,18 +2,37 @@ import React from 'react';
 import logo from './img/logo.png';
 import './App.css';
 
-import ShoppingCart from './components/ShoppingCart/ShoppingCart.jsx';
+import ShoppingCart from './components/Cart/ShoppingCart.jsx';
 import Store from './components/Store/Store.jsx';
+import Login from './components/Login/Link';
 
-function App() {
-  var list0 = { key: "Dog Food" }
-  var list1 = { key: "Dog Toys" }
-  var list2 = { key: "Crates" }
-  var menuListArray = [ list0, list1, list2 ]
+import Fakes from './fakes.js';
 
-  var link1 = { key: Math.floor(Math.random() * 100), description: "Google Homepage", uri: "https://google.com/" }
-  var link2 = { key: Math.floor(Math.random() * 100), description: "Google Homepage", uri: "https://google.com/" }
-  var footerLinkArray = [ link1, link2 ]
+class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.handleShowCart = this.handleShowCart.bind(this);
+    this.handleHideCart = this.handleHideCart.bind(this);
+    this.state = { showCart: false };
+  }
+  
+  handleShowCart() {
+    this.setState({ showCart: true });
+  }
+
+  handleHideCart() {
+    this.setState({ showCart: false });
+  }
+
+  render () {
+
+  let button;
+  if (this.state.showCart)
+    button = <p onClick={this.handleHideCart}>Cart</p>;
+  else
+    button = <p onClick={this.handleShowCart}>Cart</p>;
+
   return (
     <div className="App">
       <header className="App-header">
@@ -30,30 +49,31 @@ function App() {
             </div>
             <div className="App-login">
               {/* Login stuff here; Facebook, Google, Twitter icons, etc. */}
-              Login
+              <Login />
             </div>
             <div className="App-cart">
-              {/* Cart stuff here; cart icon, etc. */}
-              Cart
+              <div>
+                {/* Cart stuff here; cart icon, etc. */}
+                {button}
+              </div>
             </div>
           </div>
       </header>
       <div className="Menu">
         SHOP BY CATEGORY
         <ul>
-          {menuListArray.map(menuItem =>
+          {Fakes.menuListArray.map(menuItem =>
             <li>{menuItem.key}</li>  
           )}
         </ul>
       </div>
-
       {/* We might have a store header here; CSS name Store-header */}
-      {/* Do this: https://medium.com/@ayabellazreg/make-a-simple-shopping-cart-app-using-react-redux-1-3-fefde93e80c7 */}
-      {/*<Store />*/}
-      <ShoppingCart />
+
+      { this.state.showCart ? <ShoppingCart /> : <Store /> }
+      
 
       <div className="Footer">
-        {footerLinkArray.map(link => 
+        {Fakes.footerLinkArray.map(link => 
           <div className={"Link-item-" + link.key}>
             <a href={link.uri}>{link.description}</a>
           </div>
@@ -62,6 +82,7 @@ function App() {
       </div>
     </div>
   );
+  }
 }
 
 export default App;

@@ -1,8 +1,11 @@
 
 .ShoppingCart {
   display: inline-block;
-  padding: 16vh 0vw 0vh 4vw;
+  margin: 4vh 8vw;
+  padding: 5vh 2vw 4vh 2vw;
   min-height: 54vh;
+  background-color: #201a30;
+  border-radius: 10px;
 }
 
 .Cart-container{
@@ -40,6 +43,11 @@ span[class*="Item-total-"] {
 }
 
 .Cart-total {
-  padding: 1vh 3vw;
+  padding: 0vh 3vw 3vh;
+  text-align: right;
+}
+
+.Paypal {
+  padding: 1vh 2.75vw 0vh 0vw;
   text-align: right;
 }
