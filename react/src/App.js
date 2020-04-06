@@ -1,26 +1,38 @@
 import React from 'react';
 import logo from './img/logo.png';
-import item_example from './img/example-product2.png';
 import './App.css';
 
-function App() {
-  var storeItem1 = { key: Math.floor(Math.random() * 1000), name: "Zignature Brand Dog Food", image: item_example, alt: "Zignature" };
-  var storeItem2 = { key: Math.floor(Math.random() * 1000), name: "Zignature Brand Dog Food", image: item_example, alt: "Zignature" };
-  var storeItem3 = { key: Math.floor(Math.random() * 1000), name: "Zignature Brand Dog Food", image: item_example, alt: "Zignature" };
-  var storeItemArray = [ storeItem1, storeItem2, storeItem3 ]
-  var tab0 = { key: "Shop" }
-  var tab1 = { key: "Deals" }
-  var tab2 = { key: "Clearance" }
-  var tabItemArray = [ tab0, tab1, tab2 ]
+import ShoppingCart from './components/Cart/ShoppingCart.jsx';
+import Store from './components/Store/Store.jsx';
+import Login from './components/Login/Link';
 
-  var list0 = { key: "Dog Food" }
-  var list1 = { key: "Dog Toys" }
-  var list2 = { key: "Crates" }
-  var menuListArray = [ list0, list1, list2 ]
+import Fakes from './fakes.js';
 
-  var link1 = { key: Math.floor(Math.random() * 100), description: "Google Homepage", uri: "https://google.com/" }
-  var link2 = { key: Math.floor(Math.random() * 100), description: "Google Homepage", uri: "https://google.com/" }
-  var footerLinkArray = [ link1, link2 ]
+class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.handleShowCart = this.handleShowCart.bind(this);
+    this.handleHideCart = this.handleHideCart.bind(this);
+    this.state = { showCart: false };
+  }
+  
+  handleShowCart() {
+    this.setState({ showCart: true });
+  }
+
+  handleHideCart() {
+    this.setState({ showCart: false });
+  }
+
+  render () {
+
+  let button;
+  if (this.state.showCart)
+    button = <p onClick={this.handleHideCart}>Cart</p>;
+  else
+    button = <p onClick={this.handleShowCart}>Cart</p>;
+
   return (
     <div className="App">
       <header className="App-header">
@@ -37,45 +49,31 @@ function App() {
             </div>
             <div className="App-login">
               {/* Login stuff here; Facebook, Google, Twitter icons, etc. */}
-              Login
+              <Login />
             </div>
             <div className="App-cart">
-              {/* Cart stuff here; cart icon, etc. */}
-              Cart
-            </div>
-          </div>
-          <div className="Tab-list">
-            {tabItemArray.map(tab =>
-              <div className={"Tab-item-" + tab.key}>
-                {tab.key}
+              <div>
+                {/* Cart stuff here; cart icon, etc. */}
+                {button}
               </div>
-            )}
+            </div>
           </div>
       </header>
       <div className="Menu">
         SHOP BY CATEGORY
         <ul>
-          {menuListArray.map(menuItem =>
+          {Fakes.menuListArray.map(menuItem =>
             <li>{menuItem.key}</li>  
           )}
         </ul>
       </div>
-      <div className="Store">
-        {/* We might have a store header here; CSS name Store-header */}
-        {/* Do this: https://medium.com/@ayabellazreg/make-a-simple-shopping-cart-app-using-react-redux-1-3-fefde93e80c7 */}
+      {/* We might have a store header here; CSS name Store-header */}
 
-        {storeItemArray.map(item => 
-          <div className={"Store-item-" + item.key} key={item.key}>
-            <div className={"Item-container" + item.key}>
-              <img src={item.image} className={"Item-image-" + item.key} alt={item.alt} />
-              <p className={"Item-description-" + item.key}>{item.name}</p>
-            </div>
-          </div>      
-        )}
+      { this.state.showCart ? <ShoppingCart /> : <Store /> }
+      
 
-      </div>
       <div className="Footer">
-        {footerLinkArray.map(link => 
+        {Fakes.footerLinkArray.map(link => 
           <div className={"Link-item-" + link.key}>
             <a href={link.uri}>{link.description}</a>
           </div>
@@ -84,6 +82,7 @@ function App() {
       </div>
     </div>
   );
+  }
 }
 
 export default App;

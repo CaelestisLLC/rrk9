@@ -1,2 +1,2 @@
 ## RRK9 Store
-Under development, there is no license granted to use this software, but then again, there's no software yet (that we own).
+MIT License. All original material (c) 2020 Chaim Eliyah and Ying Liu.
