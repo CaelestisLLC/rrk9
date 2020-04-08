@@ -3,38 +3,55 @@ import React from 'react';
 import item_example from '../../img/example-product1.png';
 import './Store.css';
 
-function ShoppingCart() {
+import Fakes from '../../fakes.js'
 
-  let storeItem1 = { key: Math.floor(Math.random() * 1000), name: "Zignature Brand Dog Food", image: item_example, alt: "Zignature" };
-  let storeItem2 = { key: Math.floor(Math.random() * 1000), name: "Zignature Brand Dog Food", image: item_example, alt: "Zignature" };
-  let storeItem3 = { key: Math.floor(Math.random() * 1000), name: "Zignature Brand Dog Food", image: item_example, alt: "Zignature" };
-  let storeItemArray = [ storeItem1, storeItem2, storeItem3 ]
-  let tab0 = { key: "Shop" }
-  let tab1 = { key: "Deals" }
-  let tab2 = { key: "Clearance" }
-  let tabItemArray = [ tab0, tab1, tab2 ]
+class ShoppingCart extends React.Component {
 
-  return (
-    <div className="Store">
-      <div className="Tab-list">
-          {tabItemArray.map(tab =>
-            <div className={"Tab-item-" + tab.key}>
-              {tab.key}
+  constructor(props) {
+    super(props);
+    this.state = { activeTab: 'shop' };
+  }
+
+  clickTab (tabKey) { // <~~ call this with onClick
+    // implement this.setState for activeTab
+    this.setState( { activeTab: tabKey.toLowerCase() })
+  }
+
+  render () {
+    return (
+      <div className="Store">
+        <div className="Tab-list">
+            {Fakes.tabItemArray.map(tab =>
+              <div className={"Tab-item-" + tab.key}>
+                <p onClick={() => this.clickTab(tab.key)}>
+                  {tab.key}
+                </p>
+              </div>
+            )}
+        </div>
+        
+        {/* For debugging: */}
+        {/* <div>
+          {this.state.activeTab}
+        </div> */}
+
+        {Fakes.storeItemArray.map(item =>
+          item.tags.includes(this.state.activeTab) ?
+            // TODO: Make component with parameters
+            <div className={"Store-item-" + item.key} key={item.key}>
+              <div className={"Item-container" + item.key}>
+                <img src={item.image} className={"Item-image-" + item.key} alt={item.alt} />
+                <p className={"Item-description-" + item.key}>{item.name}</p>
+                {item.tags.includes("deals") ? <p className={"Deals-banner-" + item.key}>5% off</p> : <br />}
+                {item.tags.includes("clearance") ? <p className={"Clearance-banner-" + item.key}>CLEARANCE</p> : <br />}
+              </div>
             </div>
-          )}
+          : ""
+        )}
+
       </div>
-
-      {storeItemArray.map(item => 
-        <div className={"Store-item-" + item.key} key={item.key}>
-          <div className={"Item-container" + item.key}>
-            <img src={item.image} className={"Item-image-" + item.key} alt={item.alt} />
-            <p className={"Item-description-" + item.key}>{item.name}</p>
-          </div>
-        </div>      
-      )}
-
-    </div>
-  );
+    );
+  }
 }
 
 export default ShoppingCart;
