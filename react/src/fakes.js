@@ -29,8 +29,9 @@ class Fakes extends React.Component { }
 
 Fakes.menuListArray = [ list0, list1, list2 ];
 Fakes.footerLinkArray = [ link1, link2 ];
-Fakes.cartItemArray = [ cartItem1, cartItem2, cartItem3 ]
-Fakes.storeItemArray = [ storeItem1, storeItem2, storeItem3 ]
-Fakes.tabItemArray = [ tab0, tab1, tab2 ]
+Fakes.cartItemArray = [ cartItem1, cartItem2, cartItem3 ];
+Fakes.storeItemArray = [ storeItem1, storeItem2, storeItem3 ];
+Fakes.tabItemArray = [ tab0, tab1, tab2 ];
+Fakes.userEmail = "bernie@sanders.org";
 
 export default Fakes;

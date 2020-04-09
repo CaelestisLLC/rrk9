@@ -1,5 +1,7 @@
 // https://reactjs.org/docs/conditional-rendering.html
 import React from 'react';
+import Fakes from '../../fakes.js';
+
 
 function LoginLink(props) {
   return (
@@ -10,57 +12,41 @@ function LoginLink(props) {
 }
 
 function LogoutLink(props) {
+  // TODO logout
   return (
     <p onClick={props.onClick}>
-      Logout
+      Welcome, {props.userEmail}!
     </p>
   );
 }
-
-// function UserGreeting(props) {
-//   return <h1>Welcome back!</h1>;
-// }
-
-// function GuestGreeting(props) {
-//   return <h1>Please sign up.</h1>;
-// }
-
-// function Greeting(props) {
-//   const isLoggedIn = props.isLoggedIn;
-//   if (isLoggedIn) {
-//     return <UserGreeting />;
-//   }
-//   return <GuestGreeting />;
-// }
 
 class LoginControl extends React.Component {
   constructor(props) {
     super(props);
     this.handleLoginClick = this.handleLoginClick.bind(this);
     this.handleLogoutClick = this.handleLogoutClick.bind(this);
-    this.state = {isLoggedIn: false};
+    this.state = { isLoggedIn: false, userEmail: "" };
   }
 
   handleLoginClick() {
-    this.setState({isLoggedIn: true});
+    this.setState({ isLoggedIn: true, userEmail: Fakes.userEmail });
   }
 
   handleLogoutClick() {
-    this.setState({isLoggedIn: false});
+    this.setState({ isLoggedIn: false, userEmail: "" });
   }
 
   render() {
     const isLoggedIn = this.state.isLoggedIn;
     let button;
     if (isLoggedIn) {
-      button = <LogoutLink onClick={this.handleLogoutClick} />;
+      button = <LogoutLink userEmail={this.state.userEmail} onClick={this.handleLogoutClick} />;
     } else {
       button = <LoginLink onClick={this.handleLoginClick} />;
     }
 
     return (
       <div>
-        {/* <Greeting isLoggedIn={isLoggedIn} /> */}
         {button}
       </div>
     );

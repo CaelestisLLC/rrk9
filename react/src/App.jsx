@@ -26,7 +26,7 @@ class App extends React.Component {
   }
 
   render () {
-
+    // todo: manage state; cart component
     let button;
     if (this.state.showCart)
       button = <p onClick={this.handleHideCart}>Cart</p>;
