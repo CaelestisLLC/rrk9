@@ -1,0 +1,45 @@
+
+.App-login {
+  display: inline-block;
+  padding: 0vh 1vw;
+}
+
+.LoginBox {
+  position: relative;
+  bottom: 2vh;
+}
+
+.LogoutBox {
+  position: relative;
+  bottom: 1vh;
+}
+
+.LogoutLink {
+  color: #ecce88;
+  font-weight: bold;
+}
+
+.GoogleLogin {
+  position: relative;
+  display: block;
+  max-height: 2em;
+  left: .6vw;
+}
+
+.FacebookLoginLogo {
+  display: inline-block;
+  max-height: 1.5em;
+  padding-right: .5vw;
+}
+
+.FacebookLoginText {
+  display: inline-block;
+  font-size: xx-small;
+  font-weight: bold;
+  vertical-align: 60%;
+}
+
+.EmptyLoginSpace {
+  min-height: 7.7vh;
+  /* this is an awful hack, imho */
+}

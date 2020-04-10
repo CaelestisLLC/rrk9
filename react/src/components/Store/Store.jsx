@@ -1,9 +1,7 @@
 import React from 'react';
-//import item_example from '../../img/example-product2.png';
-import item_example from '../../img/example-product1.png';
-import './Store.css';
-
 import Fakes from '../../fakes.js'
+
+import './Store.css';
 
 class ShoppingCart extends React.Component {
 
@@ -22,7 +20,7 @@ class ShoppingCart extends React.Component {
       <div className="Store">
         <div className="Tab-list">
             {Fakes.tabItemArray.map(tab =>
-              <div className={"Tab-item-" + tab.key}>
+              <div className={"Tab-item-" + tab.key} key={tab.key}>
                 <p onClick={() => this.clickTab(tab.key)}>
                   {tab.key}
                 </p>
