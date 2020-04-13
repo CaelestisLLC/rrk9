@@ -109,5 +109,6 @@ Fakes.footerLinkArray = [ link1, link2 ];
 Fakes.cartItemArray = [ cartItem1, cartItem2, cartItem3 ]
 Fakes.storeItemArray = [ storeItem1, storeItem2, storeItem3, storeItem4, storeItem5 ]
 Fakes.tabItemArray = [ tab0, tab1, tab2 ]
+Fakes.userEmail = "bernie@sanders.org";
 
 export default Fakes;

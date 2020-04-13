@@ -26,7 +26,7 @@ class App extends React.Component {
   }
 
   render () {
-
+    // todo: manage state; cart component
     let button;
     if (this.state.showCart)
       button = <p onClick={this.handleHideCart}>Cart</p>;
@@ -41,29 +41,25 @@ class App extends React.Component {
               <img className="App-logo-image" src={logo} alt="logo" />
             </div>
             <div className="App-name">
-                STORE
+
+              STORE
             </div>
           </a>
-            <div className="App-checkout">
-              <div className="App-checkout-placeholder">
-              </div>
-              <div className="App-login">
-                {/* Login stuff here; Facebook, Google, Twitter icons, etc. */}
-                <Login />
-              </div>
-              <div className="App-cart">
-                <div>
-                  {/* Cart stuff here; cart icon, etc. */}
-                  {button}
-                </div>
+          <div className="App-checkout">
+            <Login />
+            <div className="App-cart">
+              <div>
+                {/* Cart stuff here; cart icon, etc. */}
+                {button}
               </div>
             </div>
+          </div>
         </header>
         <div className="Menu">
           SHOP BY CATEGORY
           <ul>
             {Fakes.menuListArray.map(menuItem =>
-              <li>{menuItem.key}</li>  
+              <li key={menuItem.key}>{menuItem.key}</li>  
             )}
           </ul>
         </div>
@@ -73,7 +69,7 @@ class App extends React.Component {
 
         <div className="Footer">
           {Fakes.footerLinkArray.map(link => 
-            <div className={"Link-item-" + link.key}>
+            <div className={"Link-item-" + link.key} key={link.key}>
               <a href={link.uri}>{link.description}</a>
             </div>
           )}
