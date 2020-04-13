@@ -18,20 +18,21 @@
 }
 
 .App-logo-image {
-  height: 12vmin;
+  height: 15vmin;
 }
 
 .App-name {
   display: inline-block;
   position: relative;
   align-items: center;
-  padding: 1vh;
-  bottom: 3vh;
+  padding: 1vh 1vw 1vh 0vw;
+  bottom: 0vh;
+  right: 2vw;
   justify-content: center;
   /* fallback color */
   color: #ff0000;
   font-family: Clarendon, Theinhardt, serif;
-  font-size: 2.5vh; 
+  font-size: 3.5vh; 
   font-weight: bolder;
 
   background: url(./img/rough-texture.jpg);
@@ -47,20 +48,10 @@
 }
 
 .App-checkout {
-  display: inline-block;
+  float: rignt;
   font-weight: lighter;
   padding: 0vh 6vw 0vh;
   text-align: right;
-}
-
-.App-checkout-placeholder {
-  display: inline-block;
-  padding: 0vh 0vw 0vh 67vw;
-}
-
-.App-login {
-  display: inline-block;
-  padding: 0vh 1vw;
 }
 
 .App-cart {
