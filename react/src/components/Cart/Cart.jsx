@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './ShoppingCart.css';
+import './Cart.css';
 
 import Fakes from '../../fakes.js';
 

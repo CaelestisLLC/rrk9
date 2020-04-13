@@ -3,7 +3,7 @@ import Fakes from '../../fakes.js'
 
 import './Store.css';
 
-class ShoppingCart extends React.Component {
+class Store extends React.Component {
 
   constructor(props) {
     super(props);
@@ -52,4 +52,4 @@ class ShoppingCart extends React.Component {
   }
 }
 
-export default ShoppingCart;
+export default Store;

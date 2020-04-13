@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './img/logo.png';
 import './App.css';
 
-import ShoppingCart from './components/Cart/ShoppingCart.jsx';
+import Cart from './components/Cart/Cart.jsx';
 import Store from './components/Store/Store.jsx';
 import Login from './components/Login/Link';
 
@@ -65,7 +65,7 @@ class App extends React.Component {
         </div>
         {/* We might have a store header here; CSS name Store-header */}
 
-        { this.state.showCart ? <ShoppingCart /> : <Store /> }
+        { this.state.showCart ? <Cart /> : <Store /> }
 
         <div className="Footer">
           {Fakes.footerLinkArray.map(link => 

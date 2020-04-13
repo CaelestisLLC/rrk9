@@ -13,7 +13,8 @@ import item_example_5 from './img/example-product5.png';
 let list0 = { key: "Dog Food" }
 let list1 = { key: "Dog Chews" }
 let list2 = { key: "Dog Toys" }
-let list3 = { key: "Crates" }
+let list3 = { key: "Dog Treats" }
+let list4 = { key: "Crates" }
 
 let link1 = { 
   key: Math.floor(Math.random() * 100), 
@@ -58,7 +59,7 @@ let storeItem1 = {
   name: "Zignature Brand Dog Food", 
   image: item_example_2, 
   alt: "Zignature", 
-  categories: [], 
+  categories: ["dog food"], 
   tags: ['shop'] 
 };
 
@@ -67,7 +68,7 @@ let storeItem2 = {
   name: "Science Diet Large Breed Light", 
   image: item_example_1, 
   alt: "Science Diet Large Breed Light", 
-  categories: [], 
+  categories: ["dog food"], 
   tags: ['shop', 'deals'] 
 };
 
@@ -76,7 +77,7 @@ let storeItem3 = {
   name: "Buck Bone", 
   image: item_example_3, 
   alt: "Buck Bone", 
-  categories: [], 
+  categories: ["dog chews"], 
   tags: ['shop', 'deals', 'clearance'] 
 };
 
@@ -85,7 +86,7 @@ let storeItem4 = {
   name: "Purina Pro Plan Focus Puppy Large Breed Formula Dry Dog Food", 
   image: item_example_4, 
   alt: "Purina", 
-  categories: [], 
+  categories: ["dog food"],
   tags: ['shop', 'deals', 'clearance'] 
 };
 
@@ -94,7 +95,7 @@ let storeItem5 = {
   name: "Milk-Bone Soft & Chewy Beef & Filet Mignon Recipe Dog Treats", 
   image: item_example_5, 
   alt: "Milk-Bone Soft & Chewy Beef & Filet Mignon Recipe Dog Treats", 
-  categories: [], 
+  categories: ["dog treats"], 
   tags: ['shop', 'deals'] 
 };
 
@@ -104,7 +105,7 @@ let tab2 = { key: "Clearance" }
 
 class Fakes extends React.Component { }
 
-Fakes.menuListArray = [ list0, list1, list2, list3 ];
+Fakes.menuListArray = [ list0, list1, list2, list3, list4 ];
 Fakes.footerLinkArray = [ link1, link2 ];
 Fakes.cartItemArray = [ cartItem1, cartItem2, cartItem3 ]
 Fakes.storeItemArray = [ storeItem1, storeItem2, storeItem3, storeItem4, storeItem5 ]
