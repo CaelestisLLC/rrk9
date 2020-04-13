@@ -38,14 +38,7 @@ class App extends React.Component {
             <CartLink toggleCartState={this.toggleCartState.bind(this)} />
           </div>
         </header>
-        <div className="Menu">
-          SHOP BY CATEGORY
-          <ul>
-            {Fakes.menuListArray.map(menuItem =>
-              <li key={menuItem.key}>{menuItem.key}</li>  
-            )}
-          </ul>
-        </div>
+
         {/* We might have a store header here; CSS name Store-header */}
 
         { this.state.showCart ? <Cart /> : <Store /> }
