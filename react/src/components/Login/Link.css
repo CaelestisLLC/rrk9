@@ -40,6 +40,6 @@
 }
 
 .EmptyLoginSpace {
-  min-height: 7.7vh;
-  /* this is an awful hack, imho */
+  /* this is an awful hack */
+  min-height: 6vh;
 }

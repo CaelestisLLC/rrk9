@@ -2,9 +2,10 @@ import React from 'react';
 import logo from './img/logo.png';
 import './App.css';
 
-import ShoppingCart from './components/Cart/ShoppingCart.jsx';
+import Cart from './components/Cart/Cart.jsx';
 import Store from './components/Store/Store.jsx';
-import Login from './components/Login/Link';
+import CartLink from './components/Cart/Link.jsx';
+import LoginLink from './components/Login/Link.jsx';
 
 import Fakes from './fakes.js';
 
@@ -12,27 +13,15 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.handleShowCart = this.handleShowCart.bind(this);
-    this.handleHideCart = this.handleHideCart.bind(this);
+    this.toggleCartState = this.toggleCartState.bind(this);
     this.state = { showCart: false };
   }
   
-  handleShowCart() {
-    this.setState({ showCart: true });
-  }
-
-  handleHideCart() {
-    this.setState({ showCart: false });
+  toggleCartState() {
+    this.setState({ showCart: !this.state.showCart });
   }
 
   render () {
-    // todo: manage state; cart component
-    let button;
-    if (this.state.showCart)
-      button = <p onClick={this.handleHideCart}>Cart</p>;
-    else
-      button = <p onClick={this.handleShowCart}>Cart</p>;
-
     return (
       <div className="App">
         <header className="App-header">
@@ -45,26 +34,14 @@ class App extends React.Component {
             </div>
           </a>
           <div className="App-checkout">
-            <Login />
-            <div className="App-cart">
-              <div>
-                {/* Cart stuff here; cart icon, etc. */}
-                {button}
-              </div>
-            </div>
+            <LoginLink />
+            <CartLink toggleCartState={this.toggleCartState.bind(this)} />
           </div>
         </header>
-        <div className="Menu">
-          SHOP BY CATEGORY
-          <ul>
-            {Fakes.menuListArray.map(menuItem =>
-              <li key={menuItem.key}>{menuItem.key}</li>  
-            )}
-          </ul>
-        </div>
+
         {/* We might have a store header here; CSS name Store-header */}
 
-        { this.state.showCart ? <ShoppingCart /> : <Store /> }
+        { this.state.showCart ? <Cart /> : <Store /> }
 
         <div className="Footer">
           {Fakes.footerLinkArray.map(link => 
