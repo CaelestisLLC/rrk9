@@ -12,7 +12,7 @@ class Store extends React.Component {
 
   clickCategory (category) {
     // this.setState...
-    this.setState({ activeCategory: category })
+    this.setState({ activeCategory: category.toLowerCase() })
   }
 
   clickTab (tabKey) { // <~~ call this with onClick
@@ -49,19 +49,23 @@ class Store extends React.Component {
 
 
           {
-            Fakes.storeItemArray.map(item =>
-              item.tags.includes(this.state.activeTab) ?
-                // TODO: Make component with parameters
-                <div className={"Store-item-" + item.key} key={item.key}>
-                  <div className={"Item-container" + item.key}>
-                    <img src={item.image} className={"Item-image-" + item.key} alt={item.alt} />
-                    <p className={"Item-description-" + item.key}>{item.name}</p>
-                    {item.tags.includes("deals") ? <p className={"Deals-banner-" + item.key}>5% off</p> : <br />}
-                    {item.tags.includes("clearance") ? <p className={"Clearance-banner-" + item.key}>CLEARANCE</p> : <br />}
+            Fakes.storeItemArray.map((item) => {
+              let includesActiveTab = item.tags.includes(this.state.activeTab);
+              let includesActiveCategory = this.state.activeCategory === "all" || item.categories.includes(this.state.activeCategory);
+              if (includesActiveTab && includesActiveCategory)
+              {
+                return (
+                  <div className={"Store-item-" + item.key} key={item.key}>
+                    <div className={"Item-container" + item.key}>
+                      <img src={item.image} className={"Item-image-" + item.key} alt={item.alt} />
+                      <p className={"Item-description-" + item.key}>{item.name}</p>
+                      {item.tags.includes("deals") ? <p className={"Deals-banner-" + item.key}>5% off</p> : <br />}
+                      {item.tags.includes("clearance") ? <p className={"Clearance-banner-" + item.key}>CLEARANCE</p> : <br />}
+                    </div>
                   </div>
-                </div>
-              : ""
-            )
+                )
+              } else { return("") }
+            })
           }
 
         </div>
