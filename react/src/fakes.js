@@ -10,11 +10,12 @@ import item_example_3 from './img/example-product3.png';
 import item_example_4 from './img/example-product4.png';
 import item_example_5 from './img/example-product5.png';
 
-let list0 = { key: "Dog Food" }
-let list1 = { key: "Dog Chews" }
-let list2 = { key: "Dog Toys" }
-let list3 = { key: "Dog Treats" }
-let list4 = { key: "Crates" }
+let list0 = { key: "All" }
+let list1 = { key: "Dog Food" }
+let list2 = { key: "Dog Chews" }
+let list3 = { key: "Dog Toys" }
+let list4 = { key: "Dog Treats" }
+let list5 = { key: "Crates" }
 
 let link1 = { 
   key: Math.floor(Math.random() * 100), 
@@ -105,7 +106,7 @@ let tab2 = { key: "Clearance" }
 
 class Fakes extends React.Component { }
 
-Fakes.menuListArray = [ list0, list1, list2, list3, list4 ];
+Fakes.menuListArray = [ list0, list1, list2, list3, list4, list5 ];
 Fakes.footerLinkArray = [ link1, link2 ];
 Fakes.cartItemArray = [ cartItem1, cartItem2, cartItem3 ]
 Fakes.storeItemArray = [ storeItem1, storeItem2, storeItem3, storeItem4, storeItem5 ]
