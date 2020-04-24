@@ -1,0 +1,27 @@
+version: 2.1
+jobs:
+  nodejs:
+    docker:
+      - image: 'circleci/node:latest'
+    steps:
+      - checkout
+      - run:
+          command: |
+            cd node
+            npm install
+            npm build
+  react:
+    docker:
+      - image: 'circleci/node:latest'
+    steps:
+      - checkout
+      - run:
+          command: |
+            cd react
+            npm install
+            npm build
+workflows:
+  build-and-test:
+    jobs:
+      - nodejs
+      - react
