@@ -46,8 +46,3 @@ span[class*="Item-total-"] {
   padding: 0vh 3vw 3vh;
   text-align: right;
 }
-
-.Paypal {
-  padding: 1vh 2.75vw 0vh 0vw;
-  text-align: right;
-}

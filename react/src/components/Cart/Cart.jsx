@@ -1,4 +1,5 @@
 import React from 'react';
+import PayPalButton from '../PayPal/Button.jsx';
 
 import './Cart.css';
 
@@ -42,9 +43,7 @@ class ShoppingCart extends React.Component {
             {"Total: $" + cart.total.toFixed(2)}
           </span>
         </div>
-        <div className="Paypal">
-          <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="Check out with PayPal" />
-        </div>
+        <PayPalButton />
       </div>
     );
   }
