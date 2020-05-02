@@ -3,8 +3,12 @@ jobs:
   nodejs:
     docker:
       - image: 'circleci/node:latest'
-      - image: 'circleci/mongo:latest'
-        port: 27017:27017
+      - image: 'mongo:4.2.5-bionic'
+# extraneous key [port] is not permitted
+#        port: 27017:27017
+# extraneous key [ports] is not permitted
+#        ports:
+#          - "27017:27017"
         environment:
           MONGO_INITDB_ROOT_USERNAME: mongoadmin
           MONGO_INITDB_ROOT_PASSWORD: p@ssw0rdToYourMom
