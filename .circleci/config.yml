@@ -3,6 +3,7 @@ jobs:
   nodejs:
     docker:
       - image: 'circleci/node:latest'
+      - image: 'circleci/mongodb:latest'
     steps:
       - checkout
       - run:
@@ -10,6 +11,7 @@ jobs:
             cd node
             npm install
             npm build
+            npm run start
   react:
     docker:
       - image: 'circleci/node:latest'
@@ -20,6 +22,7 @@ jobs:
             cd react
             npm install
             npm build
+#           npm test
 workflows:
   build-and-test:
     jobs:
