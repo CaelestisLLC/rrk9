@@ -9,7 +9,6 @@ jobs:
       - run:
           command: |
             cd node
-#           npm install -g nodemon EACCES
             npm install
             npm build
             npm run start
@@ -23,7 +22,6 @@ jobs:
             cd react
             npm install
             npm build
-#           npm test
 workflows:
   build-and-test:
     jobs:
