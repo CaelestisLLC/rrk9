@@ -9,7 +9,7 @@ jobs:
       - run:
           command: |
             cd node
-            npm install -g nodemon
+#           npm install -g nodemon EACCES
             npm install
             npm build
             npm run start
