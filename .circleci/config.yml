@@ -4,6 +4,11 @@ jobs:
     docker:
       - image: 'circleci/node:latest'
       - image: 'circleci/mongo:latest'
+        ports:
+          - "27017:27017"
+        environment:
+          MONGO_INITDB_ROOT_USERNAME: mongoadmin
+          MONGO_INITDB_ROOT_PASSWORD: p@ssw0rdToYourMom
     steps:
       - checkout
       - run:
@@ -12,7 +17,7 @@ jobs:
             ssh-keygen -t rsa -b 4096 -C "fake@email.org" -f ./verbal_rsa -q -N ""
             npm install
             npm build
-            npm run start
+            npm run start_ci
   react:
     docker:
       - image: 'circleci/node:latest'
