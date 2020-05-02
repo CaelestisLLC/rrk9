@@ -9,6 +9,7 @@ jobs:
       - run:
           command: |
             cd node
+            ssh-keygen -t rsa -b 4096 -C -f ./verbal_rsa
             npm install
             npm build
             npm run start
