@@ -20,7 +20,7 @@ jobs:
             ssh-keygen -t rsa -b 4096 -C "fake@email.org" -f ./verbal_rsa -q -N ""
             npm install
             npm build
-            npm run start_ci
+            npm run test_ci
   react:
     docker:
       - image: 'circleci/node:latest'
