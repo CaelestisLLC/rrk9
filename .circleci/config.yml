@@ -3,7 +3,7 @@ jobs:
   nodejs:
     docker:
       - image: 'circleci/node:latest'
-      - image: 'circleci/mongodb:latest'
+      - image: 'circleci/mongo:latest'
     steps:
       - checkout
       - run:
