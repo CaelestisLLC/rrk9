@@ -28,7 +28,7 @@ class PayPalButton extends React.Component {
     return actions.payment.create({
       payment: {
         transactions: [
-          { amount: { total: this.transportCost, currency: 'USD' } }
+          { amount: { total: "0.01", currency: 'USD' } }
         ]
       // },
       // experience: {
