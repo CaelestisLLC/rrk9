@@ -32,7 +32,9 @@ jobs:
             npm run build
   deploy:
     machine:
-      - image: ubuntu-1604:202004-01
+      enabled: true
+      image: ubuntu-1604:202004-01
+      docker_layer_caching: true
     steps:
       - checkout
       - run:
