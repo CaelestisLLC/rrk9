@@ -32,9 +32,9 @@ jobs:
       - run:
           command: |
             cd react
-            printf "%s\n" "REACT_APP_SANDBOX_CLIENT_ID=${REACT_APP_SANDBOX_CLIENT_ID}" "REACT_APP_PRODUCTION_CLIENT_ID=${REACT_APP_PRODUCTION_CLIENT_ID}" >> .env.production
+            printf "%s\n" "REACT_APP_SANDBOX_CLIENT_ID=${REACT_APP_SANDBOX_CLIENT_ID}" "REACT_APP_PRODUCTION_CLIENT_ID=${REACT_APP_PRODUCTION_CLIENT_ID}" >> .env.development
             npm install
-            npm run build
+            npm run start
       - slack/status:
           fail_only: true   
   deploy:
@@ -45,9 +45,8 @@ jobs:
       - checkout
       - run:
           command: |
-            cd util
-            ls -lhtra ../react/
-            . ./app-container.sh $CIRCLE_BUILD_NUM
+            printf "%s\n" "REACT_APP_SANDBOX_CLIENT_ID=${REACT_APP_SANDBOX_CLIENT_ID}" "REACT_APP_PRODUCTION_CLIENT_ID=${REACT_APP_PRODUCTION_CLIENT_ID}" >> react/.env.production
+            . util/app-container.sh $CIRCLE_BUILD_NUM
             echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
             docker push verbalwebsites/rrk9_store
       - slack/status:
