@@ -15,7 +15,7 @@ ReceiptController.prototype.defineRoutes = function(router) {
     .get(function (request, response) {
       return null;
     })
-    .post(function (request, response) {
+    .put(function (request, response) {
       return null;
     });
 }

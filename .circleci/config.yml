@@ -19,7 +19,6 @@ jobs:
             cd node
             ssh-keygen -t rsa -b 4096 -C "fake@email.org" -f ./verbal_rsa -q -N ""
             npm install
-            npm build
             npm run test_ci
   react:
     docker:
@@ -30,9 +29,22 @@ jobs:
           command: |
             cd react
             npm install
-            npm build
+            npm run build
+  deploy:
+    steps:
+      - checkout
+      - run:
+          command: |
+            cd util
+            . ./app-container.sh $CIRCLE_BUILD_NUMBER
+
 workflows:
   build-and-test:
     jobs:
       - nodejs
       - react
+          requires:
+            - nodejs
+      - deploy
+          requires:
+            - react
