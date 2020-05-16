@@ -15,9 +15,9 @@ fi
 cd -
 
 if [ ! -z $1 ]; then
-  version="_$(cat ../version)-beta:${1}"
+  version=":$(cat ../version)-${1}-beta"
   if [ $CIRCLE_BRANCH == "master" ]; then
-    version="_$(cat ../version):${1}"
+    version=":$(cat ../version)-${1}"
   fi
   ./build-app-container.sh ${version}
   # testing only; this is for CI/CD
