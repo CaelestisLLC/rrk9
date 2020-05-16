@@ -45,7 +45,7 @@ jobs:
       - run:
           command: |
             cd util
-            . ./app-container.sh $CIRCLE_BUILD_NUMBER
+            . ./app-container.sh $CIRCLE_BUILD_NUM
       - slack/status:
           fail_only: false
 workflows:
