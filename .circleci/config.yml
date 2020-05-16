@@ -46,7 +46,8 @@ jobs:
       - run:
           command: |
             printf "%s\n" "REACT_APP_SANDBOX_CLIENT_ID=${REACT_APP_SANDBOX_CLIENT_ID}" "REACT_APP_PRODUCTION_CLIENT_ID=${REACT_APP_PRODUCTION_CLIENT_ID}" >> react/.env.production
-            . util/app-container.sh $CIRCLE_BUILD_NUM
+            cd util
+            . ./app-container.sh $CIRCLE_BUILD_NUM
             echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
             docker push verbalwebsites/rrk9_store
       - slack/status:
