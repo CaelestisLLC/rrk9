@@ -1,9 +1,10 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, getByTestId, getByAltText } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
+test('renders App-logo-image', () => {
+  const { getByAltText } = render(<App />);
+  const linkElement = getByAltText(/logo/i);
   expect(linkElement).toBeInTheDocument();
 });
+

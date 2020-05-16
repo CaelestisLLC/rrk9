@@ -34,7 +34,7 @@ jobs:
             cd react
             printf "%s\n" "REACT_APP_SANDBOX_CLIENT_ID=${REACT_APP_SANDBOX_CLIENT_ID}" "REACT_APP_PRODUCTION_CLIENT_ID=${REACT_APP_PRODUCTION_CLIENT_ID}" >> .env.development
             npm install
-            npm run start
+            npm run test_ci
       - slack/status:
           fail_only: true   
   deploy:
