@@ -20,8 +20,7 @@ ENV PATH /app/api/node_modules/.bin:$PATH
 # install app dependencies
 
 # add app
-RUN mkdir -p /app/api; \
-  mkdir /app/build
+RUN mkdir -p /app/api
 
 COPY ./node/ /app/api/
 COPY ./react/build /app/react/
