@@ -6,5 +6,4 @@
 Developer must install `nodemon`.  
 Database script is `util/mongo-container.sh`.
 
-
 MIT License. All original material (c) 2020 Chaim Eliyah and Ying Liu.
