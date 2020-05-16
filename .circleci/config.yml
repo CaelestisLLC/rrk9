@@ -43,9 +43,9 @@ workflows:
   build-test-and-deploy:
     jobs:
       - nodejs
-      - react
+      - react:
           requires:
             - nodejs
-      - deploy
+      - deploy:
           requires:
             - react
