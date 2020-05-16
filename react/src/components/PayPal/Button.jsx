@@ -43,12 +43,11 @@ class PayPalButton extends React.Component {
     let Button = PayPal.Button.driver('react', { React, ReactDOM });
 
     return (
-      //   <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="Check out with PayPal" />
       <div className="Paypal">
         <Button
           // createOrder={ (data, actions) => this.createOrder(data, actions) }
           // onApprove={ (data, actions) => this.onApprove(data, actions) }
-          env='sandbox'
+          env={ (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') ? "sandbox" : "production" }
           client={ { sandbox: process.env.REACT_APP_SANDBOX_CLIENT_ID, production: process.env.REACT_APP_PRODUCTION_CLIENT_ID } }
           payment={ (data, actions) => this.payment(data, actions) }
           commit={true}
