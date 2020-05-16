@@ -4,8 +4,10 @@
   "description": "an api to permit crud operations against a database",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "test": "mocha"
+    "start": "nodemon src/server.js",
+    "start_ci": "node src/server.js",
+    "test": "nodemon --exec 'mocha || true'",
+    "test_ci": "mocha --exit"
   },
   "repository": {
     "type": "git",
@@ -28,7 +30,11 @@
     "chai": "^4.2.0",
     "expect": "^25.1.0",
     "mocha": "^7.1.1",
+    "nodemon": "^2.0.3",
     "request": "^2.88.2",
     "should": "^13.2.3"
+  },
+  "mocha": {
+    "spec": "src/**/*.spec.js"
   }
 }
