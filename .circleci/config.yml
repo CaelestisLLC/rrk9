@@ -39,7 +39,8 @@ jobs:
             . ./app-container.sh $CIRCLE_BUILD_NUMBER
 
 workflows:
-  build-and-test:
+  version: 2
+  build-test-and-deploy:
     jobs:
       - nodejs
       - react
