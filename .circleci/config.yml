@@ -47,7 +47,7 @@ jobs:
             cd util
             . ./app-container.sh $CIRCLE_BUILD_NUM
             echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
-            docker push verbalwebsites/rrk9_store:$(cat ../version)-${CIRCLE_BUILD_NUM}
+            docker push verbalwebsites/rrk9_store
       - slack/status:
           fail_only: false
 workflows:

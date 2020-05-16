@@ -16,7 +16,7 @@ cd -
 
 if [ ! -z $1 ]; then
   version=":$(cat ../version)-${1}-beta"
-  if [ $CIRCLE_BRANCH == "master" ]; then
+  if [[ ! -z ${CIRCLE_BRANCH} && ${CIRCLE_BRANCH} == "master" ]]; then
     version=":$(cat ../version)-${1}"
   fi
   ./build-app-container.sh ${version}
