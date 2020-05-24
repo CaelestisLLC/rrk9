@@ -1,8 +1,8 @@
 import React from 'react'
 
-import './Link.css'
+import './CartLink.css'
 
-class ShoppingCartLink extends React.Component {
+class CartLink extends React.Component {
   
   render () {
     return (
@@ -13,4 +13,4 @@ class ShoppingCartLink extends React.Component {
   }
 }
 
-export default ShoppingCartLink;
+export default CartLink;

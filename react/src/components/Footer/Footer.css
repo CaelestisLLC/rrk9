@@ -1,0 +1,20 @@
+
+.Footer {
+  text-align: center;
+  font-size: .8em;
+  padding: 1vh 3vw 2vh;
+  background-color: #0a0a0a;
+  margin-top: 8vh;
+}
+
+div[class*="Link-item-"] {
+  display: inline-block;
+  padding: 4vh 1vw 2vh;
+}
+
+.copyright {
+  /* 2020 Chaim Eliyah */
+  font-family: 'Courier New', Courier, monospace;
+  font-size: medium;
+  font-variant-caps: all-small-caps;
+}

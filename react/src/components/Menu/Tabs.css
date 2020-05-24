@@ -1,0 +1,10 @@
+.Tab-list {
+  display: inline-block;
+  font-weight: bolder;
+  padding: 0vh 0vw 0vh 9vw;
+}
+
+div[class*="Tab-item-"] {
+  display: inline-block;
+  padding: 0vh 3.75vw;
+}

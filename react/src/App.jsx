@@ -1,22 +1,29 @@
 import React from 'react';
-import logo from './img/logo.png';
-import './App.css';
-
+import Header from './components/Header/Header.jsx'
+import MenuBar from './components/Menu/Bar.jsx';
 import Cart from './components/Cart/Cart.jsx';
 import Store from './components/Store/Store.jsx';
-import CartLink from './components/Cart/Link.jsx';
-import LoginLink from './components/Login/Link.jsx';
+import Footer from './components/Footer/Footer.jsx';
 
-import Fakes from './fakes.js';
+import './App.css';
 
 class App extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = { activeTab: 'shop', activeCategory: 'all', showCart: false };
     this.toggleCartState = this.toggleCartState.bind(this);
-    this.state = { showCart: false };
   }
-  
+
+  clickCategory (category) {
+    this.setState({ activeCategory: category.toLowerCase() })
+  }
+
+  clickTab (tabKey) { // <~~ call this with onClick
+    // implement this.setState for activeTab
+    this.setState({ activeTab: tabKey.toLowerCase() })
+  }
+
   toggleCartState() {
     this.setState({ showCart: !this.state.showCart });
   }
@@ -24,33 +31,21 @@ class App extends React.Component {
   render () {
     return (
       <div className="App">
-        <header className="App-header">
-          <a href={window.location.protocol + "//" + window.location.host + "/"}>
-            <div className="App-logo-container">
-              <img className="App-logo-image" src={logo} alt="logo" />
-            </div>
-            <div className="App-name">
-              STORE
-            </div>
-          </a>
-          <div className="App-checkout">
-            <LoginLink />
-            <CartLink toggleCartState={this.toggleCartState.bind(this)} />
-          </div>
-        </header>
-
-        {/* We might have a store header here; CSS name Store-header */}
-
-        { this.state.showCart ? <Cart /> : <Store /> }
-
-        <div className="Footer">
-          {Fakes.footerLinkArray.map(link => 
-            <div className={"Link-item-" + link.key} key={link.key}>
-              <a href={link.uri}>{link.description}</a>
-            </div>
-          )}
-          <p className="copyright">© 2020 Chaim Eliyah</p>
-        </div>
+        <Header />
+        <MenuBar
+          clickCategory={this.clickCategory.bind(this)}
+          clickTab={this.clickTab.bind(this)}
+          toggleCartState={this.toggleCartState.bind(this)} 
+        />
+        {
+          this.state.showCart 
+            ? <Cart /> 
+            : <Store
+                activeTab={this.state.activeTab} 
+                activeCategory={this.state.activeCategory}
+              /> 
+        }
+        <Footer />
       </div>
     );
   }

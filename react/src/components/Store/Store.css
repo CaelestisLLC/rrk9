@@ -1,54 +1,56 @@
 
-
-.Store {
-  display: inline-block;
-  padding: 0vh 0vw 0vh 0vw;
-  background-color: #000000;
-  min-height: 54vh;
-  width: 75%;
+@media screen and (min-width: 1075px) {
+  .Store {
+    position: relative;
+    top: -32vh;
+    left: 18vw;
+    padding: 0vh 0vw 0vh 0vw;
+    background-color: #000000;
+    min-height: 54vh;
+    width: 75%;
+  }
 }
-
-.Tab-list {
-  display: block;
-  font-weight: bolder;
-  padding: 0vh 0vw 6vh 4.25vw;
-}
-
-div[class*="Tab-item-"] {
-  display: inline-block;
-  padding: 0vh 3.25vw;
+@media screen and (max-width: 1074px) {
+  .Store {
+    position: relative;
+    top: 6vh;
+    left: 12vw;
+    padding: 0vh 0vw 0vh 0vw;
+    background-color: #000000;
+    min-height: 54vh;
+    width: 75%;
+  }
 }
 
 div[class*="Item-container-"] {
-
+  display: inline-block;
+  text-align: center;
+  flex-direction: row;
+  margin: 0vh 4vw 4vh 4vw;
+  min-width: 200px;
+  max-width: 12vw;
 }
 
 img[class*="Item-image-"] {
-  min-height: 10vh;
-  max-height: 14vh;
-  min-width: 5vw;
-  max-width: 8vw;
-  margin-bottom: 1vh;
+  max-height: 18vh;
+  max-width: 12vw;
+
+  min-height: 12vh;
+  min-width: 100px;
 }
 
 p[class*="Item-description-"] {
-  font-size: 0.9em;
-  max-width: 15em;
-  min-height: 3em;
-}
-
-div[class*="Store-item-"] {
-  display: inline-block;
-  flex-direction: row;
-  margin: 0vh 5vh 5vh 5vh;
-  text-align: center;
+  font-size: .9em;
 }
 
 p[class*="Deals-banner-"] {
   color: #00ce00;
+  font-size: .8em;
+  margin: .4vh 0;
 }
 
 p[class*="Clearance-banner-"] {
   color: #ce0000;
   font-size: .75em;
+  margin: .4vh 0;
 }

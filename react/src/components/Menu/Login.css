@@ -1,29 +1,24 @@
 
 .App-login {
   display: inline-block;
-  padding: 0vh 1vw;
+  font-weight: bolder;
+  text-align: right;
 }
 
-.LoginBox {
+.LoginLink {
+  padding: 5vh 0 0 0;
+}
+
+.LoginProviders {
   position: relative;
-  bottom: 2vh;
-}
-
-.LogoutBox {
-  position: relative;
-  bottom: 1vh;
-}
-
-.LogoutLink {
-  color: #ecce88;
-  font-weight: bold;
+  padding-top: .65vh;
 }
 
 .GoogleLogin {
   position: relative;
   display: block;
   max-height: 2em;
-  left: .6vw;
+  left: .2vw;
 }
 
 .FacebookLoginLogo {
@@ -39,7 +34,17 @@
   vertical-align: 60%;
 }
 
-.EmptyLoginSpace {
-  /* this is an awful hack */
-  min-height: 6vh;
+/* after login */
+.Greeting {
+  position: absolute;
+  top: 2.5vh;
+  left: 72vw;
+  padding: 0vh 3.5vw 0vh 0vw;
+  min-width: 18vw;
+  min-height: 4vh;
+}
+
+.LogoutLink {
+  color: #ecce88;
+  font-weight: bolder;
 }

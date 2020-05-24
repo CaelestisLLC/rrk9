@@ -1,0 +1,16 @@
+
+.App-cart {
+  display: inline-block;
+  font-weight: bolder;
+  padding: 5vh 3.5vw 0 12vw;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}

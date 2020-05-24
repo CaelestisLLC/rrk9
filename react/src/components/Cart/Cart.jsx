@@ -1,5 +1,5 @@
 import React from 'react';
-import PayPalButton from '../PayPal/Button.jsx';
+import PayPalButton from './PayPalButton.jsx';
 
 import './Cart.css';
 
