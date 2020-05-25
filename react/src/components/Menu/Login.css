@@ -6,12 +6,18 @@
 }
 
 .LoginLink {
-  padding: 5vh 0 0 0;
+  position: relative;
+  top: -9vh;
+  left: 0vw;
+  padding: 5.33vh 0 0 2vw;
+  min-width: 10vw;
+  min-height: 4vh;
 }
 
 .LoginProviders {
   position: relative;
-  padding-top: .65vh;
+  top: -9vh;
+  left: 5vw;
 }
 
 .GoogleLogin {

@@ -3,7 +3,7 @@
   .Menu {
     display: inline-block;
     vertical-align: top;
-    margin: 6vh 0vw 12vh 2vw;
+    padding: 1vh 4vw 12vh 2vw;
   }
 }
 @media screen and (max-width: 1074px) {

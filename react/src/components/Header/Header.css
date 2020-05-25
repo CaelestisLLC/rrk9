@@ -1,9 +1,9 @@
 
 .App-header {
-  background-color: #000000;
+  background-color: #1c1c1c;
   min-height: 16vh;
   flex-direction: column;
-  padding: 2vh 3vh 5vh;
+  padding: 2vh 3vh 2.5vh;
 }
 
 .App-logo-container {
@@ -24,7 +24,7 @@
   right: 2vw;
   justify-content: center;
   /* fallback color */
-  color: #ff0000;
+  color: #ffffff;
   font-family: Clarendon, Theinhardt, serif;
   font-size: 3vh; 
   font-weight: bolder;

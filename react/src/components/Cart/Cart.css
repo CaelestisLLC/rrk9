@@ -21,9 +21,9 @@ div[class*="Item-image-container-"] {
   padding: 1vh 1vw;
   clear: left;
 }
-img[class*="Item-image-"] {
+/* img[class*="Item-image-"] {
   padding: 1vh 1vw;
-}
+} */
 div[class*="Item-description-container-"] {
   width: auto;
   float: right;

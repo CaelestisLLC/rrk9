@@ -1,8 +1,11 @@
 
 .App-cart {
+  position: relative;
+  top: -9vh;
+  left: 7vw;
   display: inline-block;
   font-weight: bolder;
-  padding: 5vh 3.5vw 0 12vw;
+  padding: 5vh 3.5vw 0 4vw;
 }
 
 .App-link {

@@ -1,7 +1,9 @@
 .Tab-list {
+  position: relative;
+  top: -9vh;
+  left: 2vw;
   display: inline-block;
   font-weight: bolder;
-  padding: 0vh 0vw 0vh 9vw;
 }
 
 div[class*="Tab-item-"] {

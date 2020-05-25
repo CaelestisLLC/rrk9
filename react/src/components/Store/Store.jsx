@@ -19,9 +19,11 @@ class Store extends React.Component {
                   <div className={"Item-container-" + item.key} key={item.key}>
                     {/* TODO: adjust image/text percentages (div each one 80/20 or something) */}
                     <img src={item.image} className={"Item-image-" + item.key} alt={item.alt} />
-                    <p className={"Item-description-" + item.key}>{item.name}</p>
-                    {item.tags.includes("deals") ? <p className={"Deals-banner-" + item.key}>5% off</p> : <br />}
-                    {item.tags.includes("clearance") ? <p className={"Clearance-banner-" + item.key}>CLEARANCE</p> : <br />}
+                    <div className={"Item-description-" + item.key}>
+                      {item.tags.includes("clearance") ? <p className={"Clearance-banner-" + item.key}>CLEARANCE</p> : ""}
+                      {item.tags.includes("deals") ? <p className={"Deals-banner-" + item.key}>5% off</p> : ""}
+                      <p className={"Item-description-text-" + item.key}>{item.name}</p>
+                    </div>
                   </div>
                 )
               } else { return("") }

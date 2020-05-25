@@ -4,7 +4,6 @@
     position: relative;
     top: -32vh;
     left: 18vw;
-    padding: 0vh 0vw 0vh 0vw;
     background-color: #000000;
     min-height: 54vh;
     width: 75%;
@@ -15,7 +14,6 @@
     position: relative;
     top: 6vh;
     left: 12vw;
-    padding: 0vh 0vw 0vh 0vw;
     background-color: #000000;
     min-height: 54vh;
     width: 75%;
@@ -24,33 +22,42 @@
 
 div[class*="Item-container-"] {
   display: inline-block;
-  text-align: center;
   flex-direction: row;
-  margin: 0vh 4vw 4vh 4vw;
-  min-width: 200px;
-  max-width: 12vw;
+  padding: 0vh 4vw 4vh;
+  width: 100px;
+  text-align: center;
 }
 
 img[class*="Item-image-"] {
-  max-height: 18vh;
-  max-width: 12vw;
-
-  min-height: 12vh;
-  min-width: 100px;
+  display: block;
+  height: 150px;
+  width: 100px;
+  margin: 0 auto 0;
 }
 
-p[class*="Item-description-"] {
-  font-size: .9em;
+div[class*="Item-description-"] {
+  display: block;
+  height: 8.33vh;
+  width: 100px;
+  white-space: wrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+p[class*="Item-description-text-"] {
+  font-size: .8em;
+  padding: .1vh 0;
 }
 
 p[class*="Deals-banner-"] {
   color: #00ce00;
   font-size: .8em;
-  margin: .4vh 0;
+  font-weight: bolder;
+  padding: .1vh 0;
 }
 
 p[class*="Clearance-banner-"] {
   color: #ce0000;
   font-size: .75em;
-  margin: .4vh 0;
+  padding: .1vh 0;
 }
