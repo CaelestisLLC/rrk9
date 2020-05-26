@@ -5,27 +5,51 @@
   text-align: right;
 }
 
-.LoginLink {
-  position: relative;
-  top: -9vh;
-  left: 0vw;
-  padding: 5.33vh 0 0 2vw;
-  min-width: 10vw;
-  min-height: 4vh;
+@media screen and (min-width: 1075px) {
+  .LoginLink {
+    position: relative;
+    top: -9vh;
+    left: 0vw;
+    padding: 5vh 0;
+    min-width: 10vw;
+  }
+
+  .LoginProviders {
+    position: relative;
+    top: -9vh;
+    left: 5vw;
+  }
+
+  .GoogleLogin {
+    position: relative;
+    display: block;
+    max-height: 2em;
+    left: .4vw;
+  }
+}
+@media screen and (max-width: 1074px) {
+  .LoginLink {
+    position: relative;
+    top: -9vh;
+    right: 10vw;
+    padding: 5vh 0 0 5vw;
+    min-width: 10vw;
+  }
+
+  .LoginProviders {
+    position: relative;
+    top: -9vh;
+    right: 15vw;
+  }
+
+  .GoogleLogin {
+    position: relative;
+    display: block;
+    max-height: 2em;
+    left: 1vw;
+  }
 }
 
-.LoginProviders {
-  position: relative;
-  top: -9vh;
-  left: 5vw;
-}
-
-.GoogleLogin {
-  position: relative;
-  display: block;
-  max-height: 2em;
-  left: .2vw;
-}
 
 .FacebookLoginLogo {
   display: inline-block;
