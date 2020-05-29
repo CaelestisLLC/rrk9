@@ -1,0 +1,22 @@
+
+@media screen and (min-width: 1075px) {
+  .App-cart {
+    position: relative;
+    top: -9vh;
+    left: 7vw;
+    display: inline-block;
+    font-weight: bolder;
+    padding: 5vh 3.5vw 0 18vw;
+  }
+}
+
+@media screen and (max-width: 1074px) {
+  .App-cart {
+    position: relative;
+    top: -9vh;
+    left: 18vw;
+    display: inline-block;
+    font-weight: bolder;
+    padding: 5vh 3.5vw 0 18vw;
+  }
+}

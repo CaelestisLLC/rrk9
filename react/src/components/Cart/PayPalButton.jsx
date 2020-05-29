@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PayPal from 'paypal-checkout';
 
-import './Button.css';
+import './PayPalButton.css';
 
 class PayPalButton extends React.Component {
 

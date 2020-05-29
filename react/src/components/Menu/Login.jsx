@@ -5,7 +5,7 @@ import Fakes from '../../fakes.js';
 import google_login_image from '../../img/btn_google_signin_dark_pressed_web.png'
 import facebook_login_image from '../../img/f_logo_RGB-Blue_58.png'
 
-import './Link.css'
+import './Login.css'
 
 class LoginLink extends React.Component {
   constructor(props) {
@@ -24,11 +24,10 @@ class LoginLink extends React.Component {
 
   render () {
     return (
-      <div className="Greeting" onMouseEnter={this.showLogin} onMouseLeave={this.hideLogin}>
-        <div className="LoginBox">
+      <div className="LoginBox" onMouseEnter={this.showLogin} onMouseLeave={this.hideLogin}>
           {this.state.showLoginButtons
             ?
-              <div>
+              <div className="LoginProviders">
                 <img className="GoogleLogin" onClick={this.props.onClick} src={google_login_image} alt="Google" />
                 <img className="FacebookLoginLogo" onClick={this.props.onClick} src={facebook_login_image} alt="Facebook" />
                 <div className="FacebookLoginText" onClick={this.props.onClick}> 
@@ -36,14 +35,10 @@ class LoginLink extends React.Component {
                 </div>
               </div>
             : 
-            <div className="EmptyLoginSpace">
-              <br />
-            </div>
+              <div className="LoginLink">
+                <p>Login</p>
+              </div>
           }
-        </div>
-        <p>
-          Login
-        </p>
       </div>
     );
   }
@@ -67,23 +62,12 @@ class LogoutLink extends React.Component {
   render () {
     return (
       <div className="Greeting" onMouseEnter={this.showLogout} onMouseLeave={this.hideLogout}>
-        <div className="LogoutBox">
           {this.state.showLogout
             ?
-              <div className="EmptyLoginSpace">
-                <br />
-                <br />
-                <p className="LogoutLink" onClick={this.props.onClick}>Logout</p>
-              </div>
+              <p className="LogoutLink" onClick={this.props.onClick}>Logout</p>
             :
-              <div className="EmptyLoginSpace">
-                <br />
-              </div>
+              <p>Welcome, {this.props.userEmail}!</p>
           }
-        </div>
-        <p>
-          Welcome, {this.props.userEmail}!
-        </p>
       </div>
     );
   }

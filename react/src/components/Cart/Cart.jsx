@@ -1,5 +1,5 @@
 import React from 'react';
-import PayPalButton from '../PayPal/Button.jsx';
+import PayPalButton from './PayPalButton.jsx';
 
 import './Cart.css';
 
@@ -13,31 +13,33 @@ class ShoppingCart extends React.Component {
 
     return (
       <div className="ShoppingCart">
-        <div className="Cart-container">
+        <table className="Cart-container">
+            <tr>
+              <th colSpan="2">Your Shopping Cart</th>
+              <th>Cost</th>
+              <th>Qty</th>
+              <th>Subtotal</th>
+            </tr>
           {Fakes.cartItemArray.map(item => 
-            <div className={"Cart-item-" + item.key} key={item.key}>
-
-              <div className={"Item-image-container-" + item.key}>
-                <img src={item.image} className={"Item-image-" + item.key} alt={item.alt} />
-              </div>
-
-              <div className={"Item-description-container-" + item.key}>
-                <span className={"Item-description-" + item.key}>
-                  {item.name}
-                </span>
-                <span className={"Item-price-" + item.price}>
-                  Cost: {item.price /* todo: dropdown */}
-                </span>
-                <span className={"Item-quantity-" + item.key}>
-                  Qty: {item.quantity /* todo: dropdown */}
-                </span>
-                <span className={"Item-total-" + item.key}>
-                  Subtotal: {"$" + (item.quantity * item.price).toFixed(2) /* todo: dropdown */}
-                </span>
-              </div>
-            </div>      
+            <tr className={"Cart-item-" + item.key} key={item.key}>
+              <td className={"Cart-item-image-container-" + item.key}>
+                <img src={item.image} className={"Cart-item-image-" + item.key} alt={item.alt} />
+              </td>
+              <td className={"Cart-item-description-" + item.key}>
+                {item.name}
+              </td>
+              <td className={"Cart-item-price-" + item.price}>
+                {item.price}
+              </td>
+              <td className={"Cart-item-quantity-" + item.key}>
+                {item.quantity}
+              </td>
+              <td className={"Cart-item-total-" + item.key}>
+                {"$" + (item.quantity * item.price).toFixed(2)}
+              </td>
+            </tr>      
           )}
-        </div>
+        </table>
         <div className="Cart-total">
           <span>
             {"Total: $" + cart.total.toFixed(2)}

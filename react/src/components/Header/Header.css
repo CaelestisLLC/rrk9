@@ -1,0 +1,38 @@
+
+.App-header {
+  background-color: #1c1c1c;
+  min-height: 16vh;
+  flex-direction: column;
+  padding: 2vh 3vh 2.5vh;
+}
+
+.App-logo-container {
+  display: inline-block;
+  justify-content: center;
+}
+
+.App-logo-image {
+  height: 15vmin;
+}
+
+.App-name {
+  display: inline-block;
+  position: relative;
+  align-items: center;
+  padding: 2vh 1vw 1vh 0vw;
+  bottom: 0vh;
+  right: 2vw;
+  justify-content: center;
+  /* fallback color */
+  color: #ffffff;
+  font-family: Clarendon, Theinhardt, serif;
+  font-size: 3vh; 
+  font-weight: bolder;
+
+  background: url(../../img/rough-texture.jpg);
+  -webkit-transform: rotate(-30deg);
+  -moz-transform: rotate(-30deg);
+  -o-transform: rotate(-30deg);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
