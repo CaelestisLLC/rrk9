@@ -22,7 +22,7 @@ ENV PATH /app/api/node_modules/.bin:$PATH
 # add app
 RUN mkdir -p /app/api
 
-COPY ./node/ /app/api/
+COPY ./java/ /app/api/
 COPY ./react/build /app/react/
 COPY ./util/run.sh /app/
 

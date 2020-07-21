@@ -2,26 +2,22 @@ version: 2.1
 orbs:
   slack: circleci/slack@3.4.2
 jobs:
-  nodejs:
+  dropwizard:
     docker:
-      - image: 'circleci/node:latest'
-      - image: 'mongo:4.2.5-bionic'
-# extraneous key [port] is not permitted
-#        port: 27017:27017
-# extraneous key [ports] is not permitted
-#        ports:
-#          - "27017:27017"
+      - image: 'circleci/openjdk:14-buster'
+      - image: 'postgres:9.6-alpine'
         environment:
-          MONGO_INITDB_ROOT_USERNAME: mongoadmin
-          MONGO_INITDB_ROOT_PASSWORD: p@ssw0rdToYourMom
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: passw0rD!
+          POSTGRES_DB: rrk9_store
     steps:
       - checkout
       - run:
           command: |
-            cd node
+            cd java
             ssh-keygen -t rsa -b 4096 -C "fake@email.org" -f ./verbal_rsa -q -N ""
-            npm install
-            npm run test_ci
+            mvn clean install
+            java -jar target/rrk9-store-1.0.jar server rrk9.yml
       - slack/status:
           fail_only: true
   react:

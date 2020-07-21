@@ -36,7 +36,7 @@ Running the Java app is very straightforward:
 source ./util/postgres-container.sh
 cd ./java
 mvn clean install
-java -jar target/rrk9-store-1.0.jar server config.yml
+java -jar target/rrk9-store-1.0.jar server rrk9.yml
 ```
 To check that your application is running enter url `http://localhost:8080`
 
