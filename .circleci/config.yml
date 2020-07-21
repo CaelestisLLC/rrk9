@@ -55,7 +55,7 @@ workflows:
       - dropwizard
       - react:
           requires:
-            - nodejs
+            - dropwizard
       - deploy:
           requires:
             - react
