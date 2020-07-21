@@ -6,7 +6,7 @@
 Developer must install `nodemon`.  
 Database script is `util/mongo-container.sh`.
 
-MIT License. All original material (c) 2020 Chaim Eliyah and Ying Liu.
+MIT License. All original material (c) 2020 Verbal Websites LLC.
 
 ### React App (`./react`)
 The React App is the crux of the RRK9 Store. It contains a single-page web app that can be used for purchasing products.
@@ -28,18 +28,17 @@ The dev app will listen on `:3000`.
 To create a production build and container, you can simply push to GitHub. If you want to test the container locally, see the Utilities section.
 
 
-### Node App (`./node`)
-The Node App presents a RESTful API and performs CRUD operations against a MongoDB instance.
+### Java App (`./java`)
+The Java App presents a RESTful API (via Dropwizard) and performs CRUD operations against a PostGREsql instance.
 
-Running the NodeJS app is very straightforward:
+Running the Java app is very straightforward:
 ```
-source ./util/mongo-container.sh
-cd ./node
-npm install
-npm start
+source ./util/postgres-container.sh
+cd ./java
+mvn clean install
+java -jar target/rrk9-store-1.0.jar server config.yml
 ```
-The app will listen on `:8080`.
-
+To check that your application is running enter url `http://localhost:8080`
 
 ### Utilities
 `app-container.sh` ~> Must be run from this folder. Creates a Docker container with the React and Node apps running.
