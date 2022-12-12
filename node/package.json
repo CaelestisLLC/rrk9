@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/VerbalWebsites/rrk9-store#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "fs": "0.0.1-security",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.7",
